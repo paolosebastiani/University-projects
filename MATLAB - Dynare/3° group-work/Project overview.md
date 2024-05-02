@@ -1,0 +1,2 @@
+# Overview
+In this group work, we used the dynamic-programming method called "value iteration", which basically solves the Bellman equations iteratively, to solve a neo-classical growth model without uncertainty.
