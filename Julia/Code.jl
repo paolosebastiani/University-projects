@@ -5,7 +5,7 @@ using LinearAlgebra
 using Plots
 using Statistics
 using Suppressor
-# WORK WITH THE DATASET
+
 ### Load the dataset
 df = CSV.read("C:\\Users\\paose\\Desktop\\Dataset.csv", DataFrame)
 
@@ -104,7 +104,7 @@ function compute_forecast(target = :INDPRO, x_var = [:CPIAUCSL, :FEDFUNDS],H = [
     return y_hat
 end
 
-# CREATE THE FORECASTING FUNCTION
+### CREATE THE FORECASTING FUNCTION
 function compute_error(target = :INDPRO, x_var = [:CPIAUCSL, :FEDFUNDS],H = [1 4 8],p = 4, end_date = Dates.Date("12/01/1999", date_format))
     y_hat = []
     y_actual = []
@@ -144,7 +144,7 @@ function compute_error(target = :INDPRO, x_var = [:CPIAUCSL, :FEDFUNDS],H = [1 4
 
 end
 
-# CREATE THE ERROR-COMPUTING FUNCTION
+### CREATE THE ERROR-COMPUTING FUNCTION
 function evaluate_model(target = :INDPRO, x_var = [:CPIAUCSL, :FEDFUNDS],H = [1 4 8],p = 4, t0 = "12/01/1999")
 
     t0 = Dates.Date(t0,date_format)
@@ -165,7 +165,7 @@ function evaluate_model(target = :INDPRO, x_var = [:CPIAUCSL, :FEDFUNDS],H = [1 
     return  mean_sqrd_a
 end
 
-# COMPUTING THE 3 DIFFERENT REGRESSIONS
+### COMPUTING THE 3 DIFFERENT REGRESSIONS
 forecast_INDPRO = compute_forecast(:INDPRO, [:CPIAUCSL, :TB3MS, :AWHMAN])
 println(forecast_INDPRO)
 forecast_CPI= compute_forecast(:CPIAUCSL, [:M1SL, :UNRATE, :FEDFUNDS, :OILPRICEx])
